@@ -17,7 +17,7 @@ function ExpenseItem(props){
       </div>
       <button
         onClick = {()=>{
-          setPrice(0)
+          setPrice(100)
         }}
       >delete</button>
     </div>
