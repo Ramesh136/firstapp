@@ -19,7 +19,7 @@ function ExpenseItem(props){
         onClick = {()=>{
           setPrice(100)
         }}
-      >delete</button>
+      >Change Price</button>
     </div>
     )
 }
