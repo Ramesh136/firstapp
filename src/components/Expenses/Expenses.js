@@ -21,7 +21,7 @@ const Expenses = (props) => {
   return (
     <Card className="expenses">
       <ExpenseFilter selected = {filteredYear} onFilter ={filterHandler}/>
-      {newList.length === 0 && <p>No item found</p>}
+      {newList.length === 1 && <p>Only single Expense here</p>}
       <ExpenseList items = {newList}/>
     </Card>
   );
