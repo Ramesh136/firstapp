@@ -6,6 +6,7 @@ import { expenses } from './constants';
 import { useState } from 'react';
 
 function App() {
+  
   const [expenseList , setExpenseList] = useState(expenses)
   const [filteredYear, setFilteredYear] = useState('2020');
 
@@ -17,7 +18,9 @@ function App() {
     // console.log(data)
     // setExpenseList(data)
     // expenseList.push(expensedata)
-    // setExpenseList(expenseList)
+    setExpenseList(prevExpense => {
+      return [expensedata , ...prevExpense]
+    })
   }
 
   const filterHandler= (year )=>{ 
