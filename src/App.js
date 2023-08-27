@@ -12,6 +12,12 @@ function App() {
   const variablelIstener = (expensedata)=>{
     console.log('Inside App')
     console.log(expensedata)
+    // const data = expenses
+    // data.push(expensedata)
+    // console.log(data)
+    // setExpenseList(data)
+    // expenseList.push(expensedata)
+    // setExpenseList(expenseList)
   }
 
   const filterHandler= (year )=>{ 
@@ -21,7 +27,7 @@ function App() {
       return item.date.getFullYear() == year
     })
     setExpenseList(newList)
-
+ 
   }
 
   return (
