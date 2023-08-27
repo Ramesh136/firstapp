@@ -1,38 +1,35 @@
 
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
+import ExpenseFilter from './components/NewExpense/ExpenseFilter';
+import { expenses } from './constants';
+import { useState } from 'react';
 
 function App() {
-  const expenses = [
-    {
-      id: 'e1',
-      title: 'Toilet Paper',
-      amount: 94.12,
-      date: new Date(2020, 7, 14),
-      location : 'bangalore' ,
-    },
-    { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) , location : 'vidya nagar' },
-    {
-      id: 'e3',
-      title: 'Car Insurance',
-      amount: 294.67,
-      date: new Date(2021, 2, 28),
-      location : 'new town' ,
-    },
-    {
-      id: 'e4',
-      title: 'New Desk (Wooden)',
-      amount: 450,
-      date: new Date(2021, 5, 12),
-      location : 'MS circle' ,
-    },
-  ];
+  const [expenseList , setExpenseList] = useState(expenses)
+  const [filteredYear, setFilteredYear] = useState('2020');
+
+  const variablelIstener = (expensedata)=>{
+    console.log('Inside App')
+    console.log(expensedata)
+  }
+
+  const filterHandler= (year )=>{ 
+    setFilteredYear(year)
+    const newList = expenseList.filter((item)=>{
+      
+      return item.date.getFullYear() == year
+    })
+    setExpenseList(newList)
+
+  }
 
   return (
     <div>
       <h2>Let's get started!</h2>
-      <NewExpense />
-      <Expenses items={expenses} />
+      <NewExpense selected = {filteredYear} onChangevariable = {variablelIstener}/>
+      <ExpenseFilter onFilter ={filterHandler}/>
+      <Expenses items={expenseList} />
     </div>
   );
 
